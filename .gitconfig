@@ -1,0 +1,18 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = ev1stensberg
+	email = evenstensberg@gmail.com
+	signingkey = # my key
+[core]
+	editor = vim
+	autocrlf = false
+[color]
+	ui = true
+[credential]
+	helper = osxkeychain
+[gpg]
+	program = gpg
