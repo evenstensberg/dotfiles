@@ -4,8 +4,8 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [user]
-	name = ev1stensberg
-	email = evenstensberg@gmail.com
+	name = # my name
+	email = #my email
 	signingkey = # my key
 [core]
 	editor = vim
@@ -16,3 +16,6 @@
 	helper = osxkeychain
 [gpg]
 	program = gpg
+[commit]
+	gpgsign = true
+
