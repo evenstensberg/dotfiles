@@ -10,6 +10,8 @@ I'm using Git with GPG (RSA 4096 bit encryption), for a walkthrough on how it is
 
 Most of these are written by Paul, so I can't take any credit for them. I've customized my terminal to make it look esthetic from my point of view.
 
+![alt text](https://raw.githubusercontent.com/ev1stensberg/dotfiles/master/img.png)
+
 ## perf.sh
 
 Benchmarks a node application using v8 compile cache versus not using it, tested to measure v8 + std/esm modules
