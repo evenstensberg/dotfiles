@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-#runs a performance benchmark on a given file (script/test.js)
+# runs a performance v8 cache vs no cache
+# benchmark on a given file (script/test.js)
 
 T="$(date +%s)"
 cd esm
