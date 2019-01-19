@@ -3,6 +3,7 @@
 
 # ./hexdumpi.sh 0x07c00 0x07e00 add = add
 # ./hexdumpi.sh 0x07c00 0x07e00 sub = subtract
+# ./hexdumpi.sh 0x07e00 single = single arg
 
 # link globally: 
 # sudo ln -s pwd + /hexdumpi.sh /usr/local/bin/dumphexi
