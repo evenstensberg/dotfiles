@@ -19,3 +19,7 @@ Benchmarks a node application using v8 compile cache versus not using it, tested
 ## regression.sh 🚀
 
 Used to search and stop test suites running in infinite trying to find a regression bug or for smoketests for a specific error message.
+
+# hexdumpi.sh ☄️
+
+Used for util in my [OS](https://github.com/uit-inf-2201-s19/uit-inf-2201-s19.github.io) course to get diffs of boot sectors in RAM in byteformat.
