@@ -14,4 +14,7 @@ then
 elif [ "$3" == "add" ]; 
 then
     echo $(($1 + $1))
+elif [ "$2" == "single" ]; 
+then
+    echo $(($1))
 fi
