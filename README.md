@@ -23,3 +23,7 @@ Used to search and stop test suites running in infinite trying to find a regress
 # hexdumpi.sh ☄️
 
 Used for util in my [OS](https://github.com/uit-inf-2201-s19/uit-inf-2201-s19.github.io) course to get diffs of boot sectors in RAM in byteformat.
+
+# curl-files.sh 🤯
+
+Does a curl of a base url together with names of files supplied as a path to a text file and downloads the files
