@@ -27,3 +27,9 @@ Used for util in my [OS](https://github.com/uit-inf-2201-s19/uit-inf-2201-s19.gi
 # curl-files.sh 🤯
 
 Does a curl of a base url together with names of files supplied as a path to a text file and downloads the files
+
+
+# imagesnap.sh
+
+Takes snapshot when mac wakes up, install through `brew install sleepwatcher` and run launch utils after that. 
+
