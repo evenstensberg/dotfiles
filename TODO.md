@@ -1,3 +1,3 @@
 # Node + NPM + GH download script + Commit Signing
 
-Set up dev env on first run
+Set up dev env on first run!
