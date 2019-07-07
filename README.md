@@ -33,3 +33,22 @@ Does a curl of a base url together with names of files supplied as a path to a t
 
 Takes snapshot when mac wakes up, install through `brew install sleepwatcher` and run launch utils after that. 
 
+# OpenSSL (/cert/*.sh)
+
+Bypasses issue with self-signed certificates in Chrome and Safari, heavily copy pasta from [here](https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate/43666288#43666288) but I like my scripts stacked one place, all attribution goes to author there.
+
+##### change pwd
+
+`cd cert`
+##### create a root authority cert
+`./cert/create_root_cert_and_key.sh`
+
+##### create a wildcard cert for mysite.com
+`./cert/create_certificate_for_domain.sh mysite.com`
+
+##### or create a cert for www.mysite.com, no wildcards
+`./cert/create_certificate_for_domain.sh www.mysite.com www.mysite.com`
+
+> Additional Resource: https://www.freecodecamp.org/news/openssl-command-cheatsheet-b441be1e8c4a/
+
+> chrome://flags/#allow-insecure-localhost
