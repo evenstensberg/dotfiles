@@ -52,3 +52,7 @@ Bypasses issue with self-signed certificates in Chrome and Safari, heavily copy 
 > Additional Resource: https://www.freecodecamp.org/news/openssl-command-cheatsheet-b441be1e8c4a/
 
 > chrome://flags/#allow-insecure-localhost
+
+# rm-node-modules.sh
+
+Removes node modules on mac
