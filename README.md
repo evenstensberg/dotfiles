@@ -60,3 +60,7 @@ Removes node modules on mac
 # list-io-devices.sh
 
 Lists currently active io devices on OSX.
+
+# airport.sh
+
+Outputs metadata about the network you are in, such as frequency and channels.
