@@ -56,3 +56,7 @@ Bypasses issue with self-signed certificates in Chrome and Safari, heavily copy 
 # rm-node-modules.sh
 
 Removes node modules on mac
+
+# list-io-devices.sh
+
+Lists currently active io devices on OSX.
