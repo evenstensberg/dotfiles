@@ -72,3 +72,7 @@ Scripts used for windows env
 # apple-scripts
 
 Scripts used for OSX
+
+# screen.sh
+
+Ssh but with session interrupts 
