@@ -5,3 +5,5 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export GMAIL_USERNAME=«my-email@somedomain.com»
 export LD_LIBRARY_PATH=$HOME/usr/local/include
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+alias npm-offline="npm --cache-min 9999999 "
