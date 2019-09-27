@@ -76,3 +76,7 @@ Scripts used for OSX
 # screen.sh
 
 Ssh but with session interrupts 
+
+# entitlements.xml
+
+[Gdb code-signing on OSX](https://superuser.com/a/1454510)
