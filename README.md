@@ -80,3 +80,7 @@ Ssh but with session interrupts
 # entitlements.xml
 
 [Gdb code-signing on OSX](https://superuser.com/a/1454510)
+
+# remove-sigh.sh
+
+Remove a ssh key
