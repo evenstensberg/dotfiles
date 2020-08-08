@@ -84,3 +84,14 @@ Ssh but with session interrupts
 # remove-sigh.sh
 
 Remove a ssh key
+
+
+# backup.sh
+
+Backup of dotfile in home folder
+
+# new-mac.sh
+
+
+Setup env for new macbook
+
