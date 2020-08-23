@@ -95,3 +95,6 @@ Backup of dotfile in home folder
 
 Setup env for new macbook
 
+# exit-server.sh
+
+Find PID and exit server at given port
