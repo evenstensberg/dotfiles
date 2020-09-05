@@ -98,3 +98,7 @@ Setup env for new macbook
 # exit-server.sh
 
 Find PID and exit server at given port
+
+# do-command.sh
+
+Execute a command n times
