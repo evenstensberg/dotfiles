@@ -114,3 +114,7 @@ Execute a command n times
 # now.sh
 
 Ls with date modified
+
+# donation.sh
+
+Donate script every Monday
