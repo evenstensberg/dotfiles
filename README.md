@@ -118,3 +118,10 @@ Ls with date modified
 # donation.sh
 
 Donate script every Monday
+
+
+# Ignore error in stdout(stderr)
+
+```sh
+$ cat /etc/ssh/ssh_host_dsa_key 2< /dev/null
+```
