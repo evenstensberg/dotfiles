@@ -125,3 +125,8 @@ Donate script every Monday
 ```sh
 $ cat /etc/ssh/ssh_host_dsa_key 2< /dev/null
 ```
+
+# Remove json prop from a list of json files
+```sh
+$ sh ./delete-attri.sh ./folder/ property
+```
