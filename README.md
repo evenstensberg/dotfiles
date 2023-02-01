@@ -126,7 +126,14 @@ Donate script every Monday
 $ cat /etc/ssh/ssh_host_dsa_key 2< /dev/null
 ```
 
-# Remove json prop from a list of json files
+# delete-attri.sh 
+Remove json prop from a list of json files
 ```sh
-$ sh ./delete-attri.sh ./folder/ property
+$ sh ./delete-attri.sh ./folder/ mainObject.property
+```
+
+# mv-prop.sh 
+move json prop from an object to its parent
+```sh
+$ sh ./mv-prop.sh ./myFolder mainObject objectProp
 ```
