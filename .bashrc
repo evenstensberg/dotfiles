@@ -7,3 +7,4 @@ export LD_LIBRARY_PATH=$HOME/usr/local/include
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 alias npm-offline="npm --cache-min 9999999 "
+alias cls=clear
