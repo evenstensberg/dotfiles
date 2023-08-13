@@ -1,36 +1,67 @@
 # test a test suite against a specific string
 # useful for regression error testing or smoketesting
 
-# Used here: https://github.com/nasa/openmct/issues/1865
+#!/usr/bin/env sh
+
+trap "exit 0" TERM
+set -e
+set -o pipefail
 
 
-trap "exit 9" TERM
 TOP_PID=$$
-
-PidName=`pidof chrome`
-
 found=false
+correct=true
+n_times=0
 
-cd /Your/Path
+# Modify these yourself
+max_runs=2
+query="The quick brown fox jumps over the lazy dog"
+
+function init() {
+    clear
+    ((n_times++))
+    echo "Running regression: $n_times"
+    exec npm run test | rl
+}
+
+function trap_n_exit() {
+    echo "Exiting..."
+    chrome_pid=`pgrep -f chrome | tail -1`
+    kill 0 $TOP_PID
+}
 
 function rl() {
+    saved_line=""
     while IFS= read -r line
     do
-    substr="Searching for this"
-    if [[ $line == *"$substr"*]]; then
-        echo "$line"
+    echo "$line"
+    if [[ "$line" == *"$query"* ]]; then
         found=true
-    elif [[ "$found" = true]]; then
-        echo "$line"
+        echo "Found regression!"
+        saved_line=$line
+        break
     fi
     done
+    if [[ "$found" == "$correct" ]]; then
+        echo "\n Exiting application, regression found: \n"
+        echo $saved_line
+        echo "\n"
+        trap_n_exit
+    else
+        run
+    fi
 }
 
 function run() {
-    if [[ "$found" = true]] then
-        clear
-        npm run test | rl && run
+    if [[ "$n_times" -ge "$max_runs" ]]; then
+        echo "Done after $n_times runs"
+        trap_n_exit
     fi
+    if [[ "$found" == "$correct" ]]; then
+        clear
+        trap_n_exit
+    fi
+    init
 }
 
-npm run test | rl && run
+init
