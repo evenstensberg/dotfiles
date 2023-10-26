@@ -137,3 +137,11 @@ move json prop from an object to its parent
 ```sh
 $ sh ./mv-prop.sh ./myFolder mainObject objectProp
 ```
+
+## unzip.sh
+
+Unzips all zips in cwd.
+
+```sh
+$ sh ./unzip.sh
+```
