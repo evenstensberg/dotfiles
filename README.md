@@ -153,3 +153,11 @@ Restarts cron/stops current ones
 ```sh
 $ sh ./restart-cron.sh
 ```
+
+## check-certs.sh
+
+Checks for outdated certificates
+
+```sh
+$ sh ./check-certs.sh
+```
