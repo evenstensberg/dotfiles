@@ -145,3 +145,11 @@ Unzips all zips in cwd.
 ```sh
 $ sh ./unzip.sh
 ```
+
+## restart-cron.sh
+
+Restarts cron/stops current ones
+
+```sh
+$ sh ./restart-cron.sh
+```
