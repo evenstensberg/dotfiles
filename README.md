@@ -161,3 +161,11 @@ Checks for outdated certificates
 ```sh
 $ sh ./check-certs.sh
 ```
+
+## count-files.sh
+
+Counts number of files in a folder
+
+```sh
+$ sh ./count-files.sh
+```
