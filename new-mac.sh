@@ -404,4 +404,6 @@ EOF
 
 brew install git
 
+brew install tree
+
 echo "Done! Now install Slack https://slack.com/intl/en-no/
