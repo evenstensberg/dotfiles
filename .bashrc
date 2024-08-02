@@ -9,4 +9,4 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 alias npm-offline="npm --cache-min 9999999 "
 alias cls=clear
 alias commit="git add . && git commit -S -m \"chore: wip\""
-alias reset=git reset --hard && git clean -fd
+alias reset="git reset --hard && git clean -fd"
