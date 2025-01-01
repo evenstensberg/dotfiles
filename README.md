@@ -1,6 +1,6 @@
 # Dotfiles 🌍
 
-A collection of my various dotfiles. Most of the bash scripts I have is based on [this](https://github.com/paulirish/dotfiles) from [Paul Irish](https://twitter.com/paul_irish). ♥️
+A collection of my various dotfiles.
 
 
 ### Linking
@@ -175,5 +175,5 @@ $ sh ./count-files.sh
 Nice cozy fireplace in the terminal
 
 ```sh
-$ npx firew0rks fireplace -1
+$ sh ./fireplace.sh
 ```
