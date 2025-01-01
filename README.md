@@ -169,3 +169,11 @@ Counts number of files in a folder
 ```sh
 $ sh ./count-files.sh
 ```
+
+## fireplace.sh
+
+Nice cozy fireplace in the terminal
+
+```sh
+$ npx firew0rks fireplace -1
+```
