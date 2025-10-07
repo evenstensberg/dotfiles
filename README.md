@@ -143,7 +143,7 @@ $ sh ./mv-prop.sh ./myFolder mainObject objectProp
 Unzips all zips in cwd.
 
 ```sh
-$ sh ./unzip.sh
+$ sh ./unzip.sh
 ```
 
 ## restart-cron.sh
@@ -151,7 +151,7 @@ $ sh ./unzip.sh
 Restarts cron/stops current ones
 
 ```sh
-$ sh ./restart-cron.sh
+$ sh ./restart-cron.sh
 ```
 
 ## check-certs.sh
@@ -159,7 +159,7 @@ $ sh ./restart-cron.sh
 Checks for outdated certificates
 
 ```sh
-$ sh ./check-certs.sh
+$ sh ./check-certs.sh
 ```
 
 ## count-files.sh
@@ -167,7 +167,7 @@ $ sh ./check-certs.sh
 Counts number of files in a folder
 
 ```sh
-$ sh ./count-files.sh
+$ sh ./count-files.sh
 ```
 
 ## fireplace.sh
@@ -176,4 +176,12 @@ Nice cozy fireplace in the terminal
 
 ```sh
 $ sh ./fireplace.sh
+```
+
+## master-to-main.sh
+
+Migration command to change default branch
+
+```sh
+$ sh ./master-to-main.sh
 ```
