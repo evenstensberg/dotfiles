@@ -185,3 +185,11 @@ Migration command to change default branch
 ```sh
 $ sh ./master-to-main.sh
 ```
+
+## check-pypi-taken.sh
+
+Check if pypi package name is taken
+
+```sh
+$ check-pypi-taken.sh evenstensberg
+```
