@@ -193,3 +193,12 @@ Check if pypi package name is taken
 ```sh
 $ check-pypi-taken.sh evenstensberg
 ```
+
+## fix-corruption.sh
+
+Fix system corruption on windows
+
+```sh
+$ sh ./windows/fix-corruption.sh
+```
+
