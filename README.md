@@ -202,3 +202,19 @@ Fix system corruption on windows
 $ sh ./windows/fix-corruption.sh
 ```
 
+## webpack-backup.sh
+
+Clone all repositories (public and private) from the webpack GitHub org into a local `backup` directory. Requires the `gh` CLI to be authenticated.
+
+```sh
+$ sh ./webpack-backup.sh
+```
+
+## webpack-pull.sh
+
+Pull the latest changes from remote for every repository inside the `backup` directory.
+
+```sh
+$ sh ./webpack-pull.sh
+```
+
