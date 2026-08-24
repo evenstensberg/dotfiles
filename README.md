@@ -221,8 +221,67 @@ $ sh ./webpack-pull.sh
 
 ## org-workflows-on-main.sh
 
-Check the CI status of every repository in the `webpack` GitHub org, on each repo's own default branch. Prints one line per repo with its status and the date of the last commit on that branch, then lists links to the failing ones. Both legacy commit statuses and workflow/check runs (GitHub Actions) are taken into account; a repo with neither is considered successful. Requires the `gh` CLI to be authenticated.
+Check the CI status of every repository in a GitHub org, on each repo's own default branch. Requires the `gh` CLI to be authenticated.
 
 ```sh
 $ bash ./org-workflows-on-main.sh
+```
+
+Repositories are checked in parallel and each verdict is printed the moment it lands, so the report fills in as it goes rather than appearing all at once. Lines are therefore in completion order, which is what the `[n/total]` counter is for.
+
+```
+[ 1/50] ✔ webpack/sass-loader          main         success    https://github.com/webpack/sass-loader
+[ 3/50] ✖ webpack/webpack-dev-server   main         failure    2 failing (Test - windows-latest …) | https://github.com/webpack/webpack-dev-server
+[41/50] ✔ webpack/analyse              master       success    https://github.com/webpack/analyse
+[48/50] – webpack/hackathon            main         no-ci      no CI configured | https://github.com/webpack/hackathon
+```
+
+A summary at the end lists the failing repositories, the ones that could not be verified, and the ones that neither passed nor failed. Exit status is 0 only when every scanned repository was confirmed green.
+
+### States
+
+| State | Meaning |
+| --- | --- |
+| `success` | Every check on the head commit passed. |
+| `failure` | At least one check concluded `failure`, `timed_out`, `startup_failure`, `action_required` or `stale`. |
+| `pending` | Checks are still running. |
+| `cancelled` | Checks were cancelled and nothing failed — inconclusive, not green. |
+| `no-checks` | The repo has active workflows but none ran on the head commit. |
+| `no-ci` | No CI configured, or Actions is disabled. |
+| `empty` | No default branch. |
+| `api-error` / `truncated` / `unknown` | The repo could not be verified. Counted against the exit status. |
+
+### How a verdict is reached
+
+Verdicts are fail-closed: a repository is reported green only when it was actually confirmed green, never because nothing was found to say otherwise.
+
+- The head SHA is resolved once and every subsequent request is pinned to it, so a push landing mid-scan cannot mix checks from two commits.
+- Three sources are consulted and merged: legacy commit statuses, check runs, and workflow runs. Workflow runs catch failures that emit no check run at all — a workflow whose YAML fails to parse reports `startup_failure` and nothing on the commit.
+- Check runs are paginated in full. A page holds 30 and repos like `webpack/webpack` have 50+, so reading a single page hides real failures behind a green tick.
+- Check runs are deduplicated by (app, name), newest first, so a re-run supersedes the attempt it replaced instead of both counting.
+- Dependabot's `dynamic/` security-update jobs are ignored — they attach check runs to the head commit but are not the project's CI. Set `INCLUDE_DYNAMIC_RUNS=1` to count them.
+- Anything unverifiable — an API error, a short response, a check conclusion the script does not model — is reported as such rather than counted as a pass. A 404 from `/actions/` is recognised as "Actions disabled" and distinguished from a real failure.
+
+### Environment
+
+| Variable | Default | Effect |
+| --- | --- | --- |
+| `ORG` | `webpack` | Organisation to scan. |
+| `INCLUDE_ARCHIVED` | `0` | Scan archived repositories too. |
+| `INCLUDE_FORKS` | `0` | Scan forks too. |
+| `CANCELLED_IS_FAIL` | `0` | Count cancelled checks as failures. |
+| `INCLUDE_DYNAMIC_RUNS` | `0` | Count Dependabot `dynamic/` runs. |
+| `JOBS` | `8` | Repositories checked in parallel. |
+| `REPO_LIMIT` | `1000` | Max repositories to list; warns if hit. |
+
+Archived repositories and forks are skipped by default, which is usually most of the org — of webpack's 92 repositories, 42 are archived and only 50 are scanned. An archived repo is read-only, so its CI can never be fixed and most would report `no-checks` forever.
+
+```sh
+$ ORG=webpack JOBS=8 INCLUDE_ARCHIVED=1 CANCELLED_IS_FAIL=1 bash ./org-workflows-on-main.sh
+```
+
+To check a single repository, bypassing the org listing:
+
+```sh
+$ bash ./org-workflows-on-main.sh --worker webpack main
 ```
