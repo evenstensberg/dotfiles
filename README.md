@@ -221,7 +221,7 @@ $ sh ./webpack-pull.sh
 
 ## org-workflows-on-main.sh
 
-Check the CI status of `main` across every repository in the `webpack` GitHub org. Prints one line per repo with its status and the date of the last commit on `main`, then lists links to the failing ones. Repos without status checks (a `null` state) count as successful. Requires the `gh` CLI to be authenticated.
+Check the CI status of every repository in the `webpack` GitHub org, on each repo's own default branch. Prints one line per repo with its status and the date of the last commit on that branch, then lists links to the failing ones. Both legacy commit statuses and workflow/check runs (GitHub Actions) are taken into account; a repo with neither is considered successful. Requires the `gh` CLI to be authenticated.
 
 ```sh
 $ bash ./org-workflows-on-main.sh
