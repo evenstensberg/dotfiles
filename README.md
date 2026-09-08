@@ -10,7 +10,7 @@ A collection of my various dotfiles.
 
 - `cp /usr/local/<script>`
 
-- `sudo ls -n $pwd/scriptname.sh usr/local/bin/symlinkname`
+- `sudo ln -s $pwd/scriptname.sh usr/local/bin/symlinkname`
 
 ## gitconfig 📈
 
