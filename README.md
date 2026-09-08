@@ -10,6 +10,8 @@ A collection of my various dotfiles.
 
 - `cp /usr/local/<script>`
 
+- `sudo ls -n $pwd/scriptname.sh usr/local/bin/symlinkname`
+
 ## gitconfig 📈
 
 I'm using Git with GPG (RSA 4096 bit encryption), for a walkthrough on how it is done, [this is the place](https://help.github.com/articles/signing-commits/).
