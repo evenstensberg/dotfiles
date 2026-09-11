@@ -287,3 +287,20 @@ To check a single repository, bypassing the org listing:
 ```sh
 $ bash ./org-workflows-on-main.sh --worker webpack main
 ```
+
+## move-issues.sh
+
+Transfer every open issue from one GitHub repository to another. Requires the `gh` CLI to be authenticated with write access to both repos.
+
+Edit `FROM_REPO` and `TO_REPO` at the top of the script to set the source and destination:
+
+```sh
+FROM_REPO="webpack/security-wg"
+TO_REPO="webpack/working-groups"
+```
+
+```sh
+$ sh ./move-issues.sh
+```
+
+Up to 500 open issues are listed and transferred one at a time, with a 3 second pause between each to stay clear of GitHub's rate limits. Transfers are not undone by re-running with the repos swapped — issues get new numbers in the destination — so check the variables before running.
